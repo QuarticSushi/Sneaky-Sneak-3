@@ -74,6 +74,20 @@ def ceasar_decode():
     textedit.delete(1.0, END)
     decoded = ceasar(key, text)
     textedit.insert(END, decoded)
+    
+def vigenere_encode():
+    key = askstring('Enter Key', 'Please enter key for vigenere cipher')
+    text = textedit.get(1.0, END)
+    textedit.delete(1.0, END)
+    decoded = vigenere(key, text)
+    textedit.insert(END, decoded)
+
+def vigenere_decode():
+    key = askstring('Enter Key', 'Please enter key for vigenere cipher')
+    text = textedit.get(1.0, END)
+    textedit.delete(1.0, END)
+    decoded = beaufort(key, text)
+    textedit.insert(END, decoded)
 
 def idk():
     messagebox.showinfo('Sorry', 'This feature is still in development')
@@ -93,22 +107,25 @@ menubar.add_cascade(label="File", menu=filemenu)
 ciphermenu = Menu(menubar, tearoff = 0)
 
 encodemenu = Menu(ciphermenu, tearoff = 0)
-encodemenu.add_command(label='ROT13', command=rot13_encode)
 encodemenu.add_command(label='Atbash', command=atbash_encode)
+encodemenu.add_command(label='ROT13', command=rot13_encode)
 encodemenu.add_command(label='Ceasar', command=ceasar_encode)
+encodemenu.add_command(label='Vigenere', command=vigenere_encode)
 ciphermenu.add_cascade(label = 'Encode', menu = encodemenu)
 
 decodemenu = Menu(ciphermenu, tearoff = 0)
-decodemenu.add_command(label='ROT13', command=rot13_encode)
 decodemenu.add_command(label='Atbash', command=atbash_encode)
+decodemenu.add_command(label='ROT13', command=rot13_encode)
 decodemenu.add_command(label='Ceasar', command=ceasar_decode)
+decodemenu.add_command(label='Vigenere', command=vigenere_decode)
 decodemenu.add_separator()
+decodemenu.add_command(label='Detect', command = idk)
 ciphermenu.add_cascade(label='Decode', menu=decodemenu)
 
 menubar.add_cascade(label = 'Cipher', menu = ciphermenu)
 
 scrollbar = Scrollbar(root)
-textedit = Text(root)
+textedit = Text(root, wrap = WORD)
 scrollbar.pack(side=RIGHT, fill=Y)
 textedit.pack(side=LEFT, expand=True, fill=BOTH)
 scrollbar.config(command=textedit.yview)

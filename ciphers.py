@@ -21,5 +21,38 @@ def ceasar(key, string):
             output += char
     return output
 
+def vigenere(key, string):
+    keyy = []
+    for char in key:
+        keyy.append(ord(char)-97)
+    key_length = len(keyy)
+    output = ''
+    index = 0
+    for char in string:
+        if char.isalpha():
+            output += ceasar(keyy[index], char)
+            index += 1
+            if index == key_length:
+                index = 0
+        else:
+            output += char
+    return output
+
+def beaufort(key, string):
+    keyy = []
+    for char in key:
+        keyy.append(-(ord(char)-97))
+    key_length = len(keyy)
+    output = ''
+    index = 0
+    for char in string:
+        if char.isalpha():
+            output += ceasar(keyy[index], char)
+            index += 1
+            if index == key_length:
+                index = 0
+        else:
+            output += char
+    return output
 
     
