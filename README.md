@@ -1,7 +1,7 @@
 # Sneaky-Sneak-3
 Basic text editor with cipher functionality
 
-Sneaky Sneak 3 is a very simple text editor with the ability to encode and decode using ciphers. It uses the tkinter module.
+Sneaky Sneak 3 is a very simple text editor with the ability to encode and decode using ciphers. It is written in python 3 and uses the tkinter module.
 
 the ciphers currently supported are:
   - ROT13
