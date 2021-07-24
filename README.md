@@ -7,10 +7,9 @@ the ciphers currently supported are:
   - ROT13
   - Atbash
   - Ceasar
+  - vigenere
 
 ciphers that are planned to be supported:
-  - vigenere
-  - vigenere autokey
   - playfair
   - railfence
 
